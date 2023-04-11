@@ -176,6 +176,12 @@ navbarToggler.addEventListener('click', () => {
 const navbarItems = document.querySelectorAll('.navbar-items li a');
 navbarItems.forEach(item=>{
   item.addEventListener('click',()=>{
+    const navbarTogglerStyle = window.getComputedStyle(navbarToggler);
+const navbarTogglerDisplay = navbarTogglerStyle.getPropertyValue('display');
+
+if (navbarTogglerDisplay === 'none') {
+ return;
+} 
       console.log(navbar.classList);
       navbar.classList.toggle('open');
     navbarToggler.classList.toggle('open');
