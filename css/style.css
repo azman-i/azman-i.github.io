@@ -158,13 +158,20 @@ p {
   color:rgb(14, 13, 13);
 }
 .navbar-items li a:active {
-  font-size:40;
+  font-weight:400;
+  color:rgb(14, 13, 13);
+  /* text-decoration: underline; */
+  /* width: 100%; */
 }
 
 .navbar-items li a:hover::after  {
   
   width: 100%;
 }
+/* .navbar-items li a:active::after  {
+  
+  width: 100%;
+} */
 .navbar-toggler {
   display: none;
 }
@@ -269,6 +276,18 @@ font-weight: 100;
 .card-languages{
   text-align:center;
   margin:10px;
+}
+.navbar ul li a.zoom-on-scroll {
+  transition: transform 0.2s ease-out;
+}
+
+.navbar ul li a.zoom-on-scroll.active {
+  transform: scale(1.2);
+  
+}
+.navbar ul li a.zoom-on-scroll.active::after {
+  width:100%;
+  
 }
 /* .card {
   border: 1px solid #ccc;

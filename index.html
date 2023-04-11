@@ -46,18 +46,17 @@
      <div class="navbar" id="navbar-id">
        
        <ul class="navbar-items">
-        <li><a href="#about" >About</a></li>
-        <li><a href="#skills">Skills</a>
+        <li><a href="#about" class="zoom-on-scroll" >About</a></li>
+        <li><a href="#skills" class="zoom-on-scroll">Skills</a>
         </li>
-        <li><a href="#projects">Projects</a>
+        <li><a href="#works" class="zoom-on-scroll">Work Experience</a>
         </li>
         
-        <li><a href="#works" >Work
-              Experience</a>
+        <li><a href="#projects" class="zoom-on-scroll">Projects</a>
             </li>
-            <li><a href="#education" >Education</a>
+            <li><a href="#education" class="zoom-on-scroll" >Education</a>
             </li>
-            <li><a href="#contact" >Contact</a>
+            <li><a href="#contact" class="zoom-on-scroll" >Contact</a>
             </li>
        </ul>
      </div>
@@ -158,6 +157,7 @@
     $('.navbar-collapse').toggleClass('show');
   });
 </script> -->
+<!-- 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 -->
 <script>
 const navbarToggler = document.getElementById('navbar-toggler');
 const navbar = document.querySelector('.side-bar');
@@ -189,4 +189,30 @@ if (navbarTogglerDisplay === 'none') {
     
   })
 });
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.navbar ul li a');
+console.log(navItems);
+function highlightNav() {
+  const scrollTop = window.scrollY || window.pageYOffset;
+  
+  sections.forEach((section, index) => {
+    const sectionTop = section.offsetTop - 50;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    
+    if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+      // if (scrollTop >= sectionTop && scrollTop+window.innerHeight < sectionBottom) {
+      
+      navItems.forEach((navItem) => {
+        navItem.classList.remove('active');
+        // navItems[index].style.fontWeight="normal";
+      });
+      
+      navItems[index].classList.add('active');
+      
+      
+    }
+  });
+}
+
+window.addEventListener('scroll', highlightNav);
 </script>
