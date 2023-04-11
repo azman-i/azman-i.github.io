@@ -139,8 +139,9 @@ skills.forEach((skill,index) => {
     row.classList.add("row");
 }
   const col=document.createElement("div");
-  col.classList.add("col-md-6");
+  col.classList.add("col-md-12");
   col.classList.add("col-sm-12");
+  col.classList.add("col-lg-6");
   const skillLabel = document.createElement("div");
   skillLabel.classList.add("skill-class");
   skillLabel.textContent = skill.item_name;
