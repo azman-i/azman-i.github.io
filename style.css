@@ -1,0 +1,143 @@
+/* Minimal academic homepage — inspired by the Skeleton-based academic template.
+   No frameworks, no JS. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 62.5%; }
+
+body {
+  margin: 0;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #222;
+  background: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a { color: #1eaedb; text-decoration: none; }
+a:hover { color: #0fa0ce; }
+
+p { margin: 0 0 1.5rem 0; }
+
+h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: -0.1rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.header-photo {
+  flex: 0 0 160px;
+}
+
+.header-photo img {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+.main-description p { margin-bottom: 2px; }
+
+.icon-links { margin-top: 8px; }
+
+.icon-links a {
+  display: inline-block;
+  margin-right: 12px;
+  color: #222;
+}
+
+.icon-links a:hover { color: #1eaedb; }
+
+.icon-links svg {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+/* ---------- Sections ---------- */
+
+.docs-section {
+  border-top: 1px solid #eee;
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+/* ---------- News ---------- */
+
+.news-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.news-date {
+  color: #fa8072;
+  flex: 0 0 130px;
+}
+
+/* ---------- Publications / vitae entries ---------- */
+
+.paper, .vitae-item { margin-bottom: 20px; }
+
+.paper p, .vitae-item p { margin-bottom: 2px; }
+
+.paper .title, .vitae-item .title { margin-bottom: 2px; }
+
+.paper-desc {
+  color: #555;
+  font-size: 1.45rem;
+  margin-top: 4px;
+}
+
+.vitae-item .meta { color: #888; font-size: 1.4rem; }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid #eee;
+  padding: 15px 0 40px 0;
+}
+
+.footer p { margin: 0; font-size: 1.3rem; }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 549px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .header-photo { flex-basis: auto; width: 150px; }
+  h1 { font-size: 3.2rem; }
+  .news-item { flex-direction: column; gap: 0; margin-bottom: 14px; }
+  .news-date { flex-basis: auto; }
+}
