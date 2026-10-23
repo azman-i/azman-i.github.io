@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -27,6 +27,7 @@
         </button>
       </h1>
       <audio id="name-audio" src="name.mp3" preload="none"></audio>
+      <p class="phonetic">/ kai&middot;rool az&middot;mahn / <span class="name-scripts">&middot; আজমান &middot; अज़मान &middot; <bdi>عزمان</bdi> &middot; Azm&aacute;n</span></p>
       <p>Ph.D. Student in Computer Science at Texas State University</p>
       <p><a href="mailto:duz19@txstate.edu">duz19@txstate.edu</a></p>
       <p class="icon-links">
@@ -210,9 +211,20 @@
   <!-- ========== Footer ========== -->
   <div class="footer">
     <p>&copy; 2026 Khairul Azman &middot; Last updated: October 2026</p>
+    <p class="visitors" id="visitors" hidden>You are visitor <span class="visitor-num" id="visitor-num"></span></p>
   </div>
 
 </div>
+
+<script>
+fetch('https://abacus.jasoncameron.dev/hit/azman-i-github-io/visits')
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    document.getElementById('visitor-num').textContent = 'No. ' + d.value.toLocaleString();
+    document.getElementById('visitors').hidden = false;
+  })
+  .catch(function () {});
+</script>
 
 </body>
 </html>

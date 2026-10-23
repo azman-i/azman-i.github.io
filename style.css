@@ -36,6 +36,19 @@ h1 {
 
 /* ---------- Header ---------- */
 
+.main-description .phonetic {
+  color: #999;
+  font-style: italic;
+  font-size: 1.35rem;
+  letter-spacing: 0.08rem;
+  margin: 0 0 6px 2px;
+}
+
+.name-scripts {
+  font-style: normal;
+  color: #aaa;
+}
+
 .audio-btn {
   background: none;
   border: none;
@@ -243,6 +256,15 @@ h1 {
 }
 
 .footer p { margin: 0; font-size: 1.3rem; }
+
+.footer .visitors {
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 1.1rem;
+}
+
+.footer .visitor-num { color: #fa8072; font-weight: 600; }
 
 /* ---------- Mobile ---------- */
 
