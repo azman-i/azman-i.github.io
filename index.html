@@ -222,7 +222,7 @@
   var last = 0;
   try { last = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
   var shouldCount = Date.now() - last > 24 * 60 * 60 * 1000;
-  fetch('https://abacus.jasoncameron.dev/' + (shouldCount ? 'hit' : 'get') + '/azman-i-github-io/visits')
+  fetch('https://abacus.jasoncameron.dev/' + (shouldCount ? 'hit' : 'get') + '/azman-i-github-io/site-visits')
     .then(function (r) { return r.json(); })
     .then(function (d) {
       if (shouldCount) { try { localStorage.setItem(KEY, Date.now()); } catch (e) {} }
