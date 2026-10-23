@@ -217,13 +217,20 @@
 </div>
 
 <script>
-fetch('https://abacus.jasoncameron.dev/hit/azman-i-github-io/visits')
-  .then(function (r) { return r.json(); })
-  .then(function (d) {
-    document.getElementById('visitor-num').textContent = 'No. ' + d.value.toLocaleString();
-    document.getElementById('visitors').hidden = false;
-  })
-  .catch(function () {});
+(function () {
+  var KEY = 'visit-stamp';
+  var last = 0;
+  try { last = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
+  var shouldCount = Date.now() - last > 24 * 60 * 60 * 1000;
+  fetch('https://abacus.jasoncameron.dev/' + (shouldCount ? 'hit' : 'get') + '/azman-i-github-io/visits')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (shouldCount) { try { localStorage.setItem(KEY, Date.now()); } catch (e) {} }
+      document.getElementById('visitor-num').textContent = 'No. ' + d.value.toLocaleString();
+      document.getElementById('visitors').hidden = false;
+    })
+    .catch(function () {});
+})();
 </script>
 
 </body>
