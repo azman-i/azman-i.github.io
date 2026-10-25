@@ -234,7 +234,7 @@
   var KEY = 'visit-stamp-2';
   var last = 0;
   try { last = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
-  var shouldCount = Date.now() - last > 24 * 60 * 60 * 1000;
+  var shouldCount = Date.now() - last > 7 * 24 * 60 * 60 * 1000;
   fetch('https://abacus.jasoncameron.dev/' + (shouldCount ? 'hit' : 'get') + '/azman-i-github-io/site-visits')
     .then(function (r) { return r.json(); })
     .then(function (d) {
