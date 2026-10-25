@@ -9,7 +9,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+  </script>
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -27,7 +35,7 @@
         </button>
       </h1>
       <audio id="name-audio" src="name.mp3" preload="none"></audio>
-      <p class="phonetic">/ kai&middot;rool az&middot;mahn / <span class="name-scripts">&middot; আজমান &middot; अज़मान &middot; <bdi>عزمان</bdi> &middot; Azm&aacute;n</span></p>
+      <p class="phonetic">/ kai&middot;rool az&middot;mahn / <span class="name-scripts">&middot; আজমান &middot; अज़मान &middot; <bdi>عزمان</bdi> &middot; Azm&aacute;n &middot; 阿兹曼</span></p>
       <p>Ph.D. Student in Computer Science at Texas State University</p>
       <p><a href="mailto:duz19@txstate.edu">duz19@txstate.edu</a></p>
       <p class="icon-links">
@@ -52,10 +60,15 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#teaching">Teaching</a></li>
+      <button class="theme-toggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode"
+        onclick="var d=document.documentElement.classList.toggle('dark');try{localStorage.setItem('theme',d?'dark':'light')}catch(e){}">
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.74 2.32a.86.86 0 0 0-.92 1.19 8.06 8.06 0 0 1 .62 3.11c0 4.47-3.63 8.1-8.1 8.1-.68 0-1.35-.08-1.98-.24a.86.86 0 0 0-.99 1.17A10.02 10.02 0 0 0 10.63 22c5.53 0 10.02-4.49 10.02-10.02 0-4.44-2.89-8.2-6.89-9.52a.86.86 0 0 0-1.02-.14z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4.93 4.93a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 0 1-1.42 1.41L4.93 6.34a1 1 0 0 1 0-1.41zm11.31 11.31a1 1 0 0 1 1.42 0l1.41 1.42a1 1 0 1 1-1.41 1.41l-1.42-1.41a1 1 0 0 1 0-1.42zm1.42-9.9a1 1 0 0 1 0 1.42L16.24 9.17a1 1 0 0 1-1.41-1.41l1.41-1.42a1 1 0 0 1 1.42 0zM7.76 16.24a1 1 0 0 1 0 1.42l-1.42 1.41a1 1 0 0 1-1.41-1.41l1.41-1.42a1 1 0 0 1 1.42 0z"/></svg>
+      </button>
     </ul>
   </nav>
 
@@ -114,25 +127,6 @@
     <label class="news-more-btn" for="news-toggle"><span class="more-label">See more</span><span class="less-label">See less</span></label>
   </div>
 
-  <!-- ========== Education ========== -->
-  <div class="docs-section" id="education">
-    <h5 class="section-header">Education</h5>
-    <div class="vitae-item">
-      <div class="vitae-main">
-        <p class="title"><b>Ph.D. in Computer Science</b></p>
-        <p>Texas State University, San Marcos, TX &middot; Advisor: <a href="https://shibbirtanvin.github.io/">Dr. Shibbir Ahmed</a></p>
-      </div>
-      <p class="meta">August 2025 &ndash; Present</p>
-    </div>
-    <div class="vitae-item">
-      <div class="vitae-main">
-        <p class="title"><b>B.Sc. in Computer Science and Engineering</b></p>
-        <p>Bangladesh University of Engineering and Technology (BUET) &middot; Advisor: Prof. Dr. Abul Kashem Mia</p>
-      </div>
-      <p class="meta">February 2021</p>
-    </div>
-  </div>
-
   <!-- ========== Publications ========== -->
   <div class="docs-section" id="publications">
     <h5 class="section-header">Publications</h5>
@@ -157,6 +151,25 @@
         Optimized the MAPPIN algorithm, integrated DaGO-Fun and NaviGO for functional similarity, and replaced
         BLAST with MMseqs2, reducing runtime from 39 to 3 minutes.
       </p>
+    </div>
+  </div>
+
+  <!-- ========== Education ========== -->
+  <div class="docs-section" id="education">
+    <h5 class="section-header">Education</h5>
+    <div class="vitae-item">
+      <div class="vitae-main">
+        <p class="title"><b>Ph.D. in Computer Science</b></p>
+        <p>Texas State University, San Marcos, TX &middot; Advisor: <a href="https://shibbirtanvin.github.io/">Dr. Shibbir Ahmed</a></p>
+      </div>
+      <p class="meta">August 2025 &ndash; Present</p>
+    </div>
+    <div class="vitae-item">
+      <div class="vitae-main">
+        <p class="title"><b>B.Sc. in Computer Science and Engineering</b></p>
+        <p>Bangladesh University of Engineering and Technology (BUET) &middot; Advisor: Prof. Dr. Abul Kashem Mia</p>
+      </div>
+      <p class="meta">February 2021</p>
     </div>
   </div>
 
