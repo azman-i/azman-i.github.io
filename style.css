@@ -378,29 +378,32 @@ html.dark .theme-toggle .moon { display: none; }
 
 .flip-card.active { display: block; }
 
-.card-nav {
+.card-stage {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 18px;
-  margin-top: 16px;
+  gap: 10px;
 }
 
-.card-nav-btn {
+.card-stage .cards { flex: 1; }
+
+.card-arrow {
+  background: none;
+  border: none;
+  padding: 4px 6px;
   cursor: pointer;
-  padding: 4px 16px;
-  border: 1px solid var(--btn-border);
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  color: var(--btn-text);
-  background: var(--btn-bg);
+  color: var(--subtle);
+  font-size: 2.2rem;
+  line-height: 1;
   font-family: inherit;
 }
 
-.card-nav-btn:hover { color: var(--link); border-color: var(--link); }
+.card-arrow:hover { color: var(--link); }
+
+.card-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
 
 .card-counter {
   color: var(--subtle);

@@ -25,7 +25,7 @@
     if (dark) document.documentElement.classList.add('dark');
   })();
   </script>
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -237,6 +237,8 @@
       <h5 class="section-header">Fun Facts</h5>
       <button class="modal-close" type="button" onclick="document.getElementById('funfacts').close()" aria-label="Close">&#10005;</button>
     </div>
+    <div class="card-stage">
+    <button class="card-arrow" type="button" onclick="ffStep(-1)" aria-label="Previous card">&#8592;</button>
     <div class="cards">
       <button class="flip-card active" type="button" onclick="this.classList.toggle('flipped')">
         <span class="card-inner">
@@ -293,10 +295,10 @@
         </span>
       </button>
     </div>
+    <button class="card-arrow" type="button" onclick="ffStep(1)" aria-label="Next card">&#8594;</button>
+    </div>
     <div class="card-nav">
-      <button class="card-nav-btn" type="button" onclick="ffStep(-1)">&#8592; Prev</button>
       <span class="card-counter" id="ff-counter">1 / 9</span>
-      <button class="card-nav-btn" type="button" onclick="ffStep(1)">Next &#8594;</button>
     </div>
   </dialog>
 
