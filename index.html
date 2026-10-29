@@ -25,7 +25,7 @@
     if (dark) document.documentElement.classList.add('dark');
   })();
   </script>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -72,6 +72,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#teaching">Teaching</a></li>
+      <li><button class="nav-btn" type="button" onclick="document.getElementById('funfacts').showModal()">Fun Facts</button></li>
       <button class="theme-toggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode"
         onclick="var d=document.documentElement.classList.toggle('dark');try{localStorage.setItem('theme',d?'dark':'light')}catch(e){}">
         <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.74 2.32a.86.86 0 0 0-.92 1.19 8.06 8.06 0 0 1 .62 3.11c0 4.47-3.63 8.1-8.1 8.1-.68 0-1.35-.08-1.98-.24a.86.86 0 0 0-.99 1.17A10.02 10.02 0 0 0 10.63 22c5.53 0 10.02-4.49 10.02-10.02 0-4.44-2.89-8.2-6.89-9.52a.86.86 0 0 0-1.02-.14z"/></svg>
@@ -229,6 +230,35 @@
       <p class="paper-desc">Responsible for grading projects and assignments, and providing student support during office hours (two sessions per week, two hours each).</p>
     </div>
   </div>
+
+  <!-- ========== Fun Facts modal ========== -->
+  <dialog id="funfacts" class="funfacts-modal" onclick="if(event.target===this)this.close()">
+    <div class="modal-head">
+      <h5 class="section-header">Fun Facts</h5>
+      <button class="modal-close" type="button" onclick="document.getElementById('funfacts').close()" aria-label="Close">&#10005;</button>
+    </div>
+    <p class="modal-hint">Click a card to reveal the answer.</p>
+    <div class="cards">
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">What do you love the most?</span>
+          <span class="card-face card-back">Fishing.</span>
+        </span>
+      </button>
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">Which profession would you choose if you were not doing a Ph.D.?</span>
+          <span class="card-face card-back">Stand-up comedian.</span>
+        </span>
+      </button>
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">Which sports do you love the most?</span>
+          <span class="card-face card-back">Cricket, soccer, badminton, table tennis... and what not!</span>
+        </span>
+      </button>
+    </div>
+  </dialog>
 
   <!-- ========== Footer ========== -->
   <div class="footer">
