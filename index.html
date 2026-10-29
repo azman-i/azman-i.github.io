@@ -25,7 +25,7 @@
     if (dark) document.documentElement.classList.add('dark');
   })();
   </script>
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -237,9 +237,8 @@
       <h5 class="section-header">Fun Facts</h5>
       <button class="modal-close" type="button" onclick="document.getElementById('funfacts').close()" aria-label="Close">&#10005;</button>
     </div>
-    <p class="modal-hint">Click a card to reveal the answer.</p>
     <div class="cards">
-      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <button class="flip-card active" type="button" onclick="this.classList.toggle('flipped')">
         <span class="card-inner">
           <span class="card-face card-front">What do you love the most?</span>
           <span class="card-face card-back">Fishing.</span>
@@ -257,8 +256,42 @@
           <span class="card-face card-back">Cricket, soccer, badminton, table tennis... and what not!</span>
         </span>
       </button>
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">Which movies touched you the most?</span>
+          <span class="card-face card-back">Visaranai, The Shawshank Redemption, The Green Mile.</span>
+        </span>
+      </button>
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">One secret nobody ever knows about?</span>
+          <span class="card-face card-back">Umm... let's keep it a secret &#128521;</span>
+        </span>
+      </button>
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+        <span class="card-inner">
+          <span class="card-face card-front">What do you miss in the US?</span>
+          <span class="card-face card-back">I miss my time in Bangladesh.</span>
+        </span>
+      </button>
+    </div>
+    <div class="card-nav">
+      <button class="card-nav-btn" type="button" onclick="ffStep(-1)">&#8592; Prev</button>
+      <span class="card-counter" id="ff-counter">1 / 6</span>
+      <button class="card-nav-btn" type="button" onclick="ffStep(1)">Next &#8594;</button>
     </div>
   </dialog>
+
+  <script>
+  var ffIndex = 0;
+  function ffStep(step) {
+    var cards = document.querySelectorAll('#funfacts .flip-card');
+    cards[ffIndex].classList.remove('active', 'flipped');
+    ffIndex = (ffIndex + step + cards.length) % cards.length;
+    cards[ffIndex].classList.add('active');
+    document.getElementById('ff-counter').textContent = (ffIndex + 1) + ' / ' + cards.length;
+  }
+  </script>
 
   <!-- ========== Footer ========== -->
   <div class="footer">
