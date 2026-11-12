@@ -335,8 +335,12 @@
         message: f.message.value,
         _subject: 'Portfolio contact from ' + f.name.value
       })
-    }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function () { status.textContent = 'Thanks! Your message is on its way.'; f.reset(); })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (String(d.success) !== 'true') throw 0;
+        status.textContent = 'Thanks! Your message is on its way.';
+        f.reset();
+      })
       .catch(function () { status.textContent = 'Something went wrong. Please email me directly at duz19@txstate.edu.'; });
   });
 
