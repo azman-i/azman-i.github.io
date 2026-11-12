@@ -2,30 +2,32 @@
    No frameworks, no JS (beyond the tiny audio/counter/theme helpers). */
 
 :root {
-  --bg: #fff;
-  --text: #222;
-  --muted: #555;
-  --faint: #888;
-  --soft: rgba(0, 0, 0, 0.4);
-  --rule: #eee;
+  --bg: #fbfdfe;
+  --bg-top: #e7f4fb;
+  --text: #24313a;
+  --muted: #53646f;
+  --faint: #7f919c;
+  --soft: rgba(36, 49, 58, 0.45);
+  --rule: #ddeaf2;
   --link: #1eaedb;
-  --link-hover: #0fa0ce;
+  --link-hover: #0f8fb8;
   --date: #fa8072;
-  --pill-bg: #f4f4f4;
-  --pill-text: #333;
-  --card-bg: #fbfbfb;
-  --card-border: #ececec;
-  --btn-bg: #f7f7f7;
-  --btn-border: #ddd;
-  --btn-text: #555;
-  --aside-border: #e4e4e4;
-  --aside-text: #777;
-  --subtle: #999;
-  --subtle2: #aaa;
+  --pill-bg: #e5f2fa;
+  --pill-text: #335a6e;
+  --card-bg: #f3f9fd;
+  --card-border: #d8e8f2;
+  --btn-bg: #eaf5fb;
+  --btn-border: #c7e0ee;
+  --btn-text: #42697f;
+  --aside-border: #d8e8f2;
+  --aside-text: #68808e;
+  --subtle: #8aa0ac;
+  --subtle2: #97abb6;
 }
 
 html.dark {
   --bg: #101214;
+  --bg-top: #121a21;
   --text: #d8d8d6;
   --muted: #a8a8a4;
   --faint: #8e8e8a;
@@ -58,7 +60,9 @@ body {
   line-height: 1.6;
   font-weight: 400;
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: linear-gradient(180deg, var(--bg-top) 0px, var(--bg) 460px);
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -240,8 +244,10 @@ html.dark .theme-toggle .moon { display: none; }
 .section-header::after {
   content: "";
   display: block;
-  width: 36px;
-  border-bottom: 2px solid var(--link);
+  width: 42px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--link), var(--date));
   margin-top: 0.6rem;
 }
 
