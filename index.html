@@ -25,7 +25,7 @@
     if (dark) document.documentElement.classList.add('dark');
   })();
   </script>
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
@@ -106,7 +106,8 @@
     </p>
     <p>
       I am always open to collaboration and discussion about research. If you share an interest in trustworthy
-      AI for software engineering, please feel free to reach out!
+      AI for software engineering, please feel free to
+      <button class="inline-link" type="button" onclick="document.getElementById('contact').showModal()">reach out</button>!
     </p>
   </div>
 
@@ -228,6 +229,27 @@
     </div>
   </div>
 
+  <!-- ========== Contact modal ========== -->
+  <dialog id="contact" class="funfacts-modal" onclick="if(event.target===this)this.close()">
+    <div class="modal-head">
+      <h5 class="section-header">Get in Touch</h5>
+      <button class="modal-close" type="button" onclick="document.getElementById('contact').close()" aria-label="Close">&#10005;</button>
+    </div>
+    <form id="contact-form" class="contact-form">
+      <label>Your name
+        <input name="name" type="text" required autocomplete="name">
+      </label>
+      <label>Your email
+        <input name="email" type="email" required autocomplete="email">
+      </label>
+      <label>Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <button class="send-btn" type="submit">Send Message</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </dialog>
+
   <!-- ========== Fun Facts modal ========== -->
   <dialog id="funfacts" class="funfacts-modal" onclick="if(event.target===this)this.close()">
     <div class="modal-head">
@@ -300,6 +322,24 @@
   </dialog>
 
   <script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = this, status = document.getElementById('form-status');
+    status.textContent = 'Sending...';
+    fetch('https://formsubmit.co/ajax/duz19@txstate.edu', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: f.name.value,
+        email: f.email.value,
+        message: f.message.value,
+        _subject: 'Portfolio contact from ' + f.name.value
+      })
+    }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function () { status.textContent = 'Thanks! Your message is on its way.'; f.reset(); })
+      .catch(function () { status.textContent = 'Something went wrong. Please email me directly at duz19@txstate.edu.'; });
+  });
+
   var ffIndex = 0;
   function ffStep(step) {
     var cards = document.querySelectorAll('#funfacts .flip-card');

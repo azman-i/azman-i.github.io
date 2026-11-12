@@ -416,6 +416,76 @@ html.dark .theme-toggle .moon { display: none; }
 
 .vitae-item .meta { color: var(--faint); font-size: 1.4rem; white-space: nowrap; }
 
+/* ---------- Contact modal ---------- */
+
+.inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: var(--link);
+}
+
+.inline-link:hover { color: var(--link-hover); text-decoration: underline; }
+
+.contact-form label {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 9px 12px;
+  border: 1px solid var(--btn-border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--link);
+}
+
+.send-btn {
+  cursor: pointer;
+  padding: 7px 26px;
+  border: 1px solid var(--btn-border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: var(--btn-text);
+  background: var(--btn-bg);
+  font-family: inherit;
+}
+
+.send-btn:hover { color: var(--link); border-color: var(--link); }
+
+.form-status {
+  margin-top: 10px;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
 /* ---------- Fun Facts modal ---------- */
 
 .funfacts-modal {
