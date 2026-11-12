@@ -23,10 +23,11 @@
   --aside-text: #68808e;
   --subtle: #8aa0ac;
   --subtle2: #97abb6;
-  --hero: linear-gradient(135deg, #0f94c4 0%, #1eaedb 55%, #2ec4e6 100%);
-  --hero-text: #ffffff;
-  --hero-soft: rgba(255, 255, 255, 0.85);
-  --hero-ring: rgba(255, 255, 255, 0.55);
+  --hero: linear-gradient(160deg, #e1f1fa 0%, #ecf6fc 55%, #f7fbfe 100%);
+  --hero-text: #24313a;
+  --hero-soft: #5a6c77;
+  --hero-ring: #ffffff;
+  --hero-link: #1a9ec6;
   --date-bg: rgba(250, 128, 114, 0.16);
   --date-text: #DE5340;
   --dot-ring: #d9edf7;
@@ -58,6 +59,7 @@ html.dark {
   --hero-text: #e4e4e2;
   --hero-soft: rgba(228, 228, 226, 0.68);
   --hero-ring: rgba(255, 255, 255, 0.14);
+  --hero-link: #e4e4e2;
   --date-bg: rgba(249, 141, 120, 0.15);
   --date-text: #f98d78;
   --dot-ring: #1d2b35;
@@ -153,9 +155,11 @@ h1 {
   background: var(--hero);
 }
 
-.header, .header a, .icon-links a, .audio-btn { color: var(--hero-text); }
+.header, .icon-links a, .audio-btn { color: var(--hero-text); }
 
-.header a:hover, .icon-links a:hover, .audio-btn:hover { color: var(--hero-text); opacity: 0.8; }
+.header a { color: var(--hero-link); }
+
+.header a:hover, .icon-links a:hover, .audio-btn:hover { opacity: 0.75; }
 
 .main-description .phonetic, .name-scripts, .main-description p { color: var(--hero-soft); }
 
@@ -290,7 +294,7 @@ html.dark .theme-toggle .moon { display: none; }
 
 .header-photo img {
   border: 4px solid var(--hero-ring);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------- News ---------- */
